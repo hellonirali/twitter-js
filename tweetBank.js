@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-let data = [];
+let data = [{name: 'nirali', content: '??'}];
 
 function add (name, content)  {
   data.push({ name: name, content: content });
@@ -35,5 +35,4 @@ for (let i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 
 }
-
 

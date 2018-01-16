@@ -2,9 +2,21 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
   <div class="page-header">
     <h1>Welcome to Twitter.js!</h1>
+  </div>
+  <div class="row formatting"> {% if showForm %}
+      <form action="/" method="POST">
+        <label for="name_field">Name:</label>
+        <!-- <input name="name" type="text" id="name_field" /> -->
+        <input name="name" value="{{tweet.name}}" type="text" id="name_field" />
+
+        <label for="text_field">Text:</label>
+        <input name="text" type="text" id="text_field" style="width: 350px;" />
+
+        <input type="submit" value="Submit" />
+      </form>
+    {% endif %}
   </div>
   <div class="row">
     <div class="col-md-3">
@@ -16,7 +28,9 @@
 
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li>{{tweet.content}}</li>
+        <li class="tweetbox">
+          <img><br>
+          <h4><b><a href="/users/{{tweet.name}}">{{tweet.name}}</a></b></h4><p>{{tweet.content}}</p></li>
       {% endfor %}
 
     </div>
